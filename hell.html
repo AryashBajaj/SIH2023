@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <button type="button" value="button" onclick="displayData()">Query</button>
+    <button type="button" value="button">Query</button>
     <div class="result" id="result"></div>
     <script>
         var rc = document.getElementById("result");
@@ -23,7 +23,10 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var js = JSON.parse(this.responseText);
-                
+                console.log(js);
+                var doRate = 100*js[0].DS/js[0].TS;
+                console.log(doRate);
+                rc.innerHTML = doRate;
             }
         };
     </script>

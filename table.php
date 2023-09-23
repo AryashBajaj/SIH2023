@@ -24,9 +24,6 @@ $result = mysqli_query($conn, $result);*/
 
 $sql = "SELECT * FROM school";
 $result = mysqli_query($conn, "SELECT * FROM school");
-if ($result) {
-    echo "Succesful";
-}
 $data = array();
 while ($row = mysqli_fetch_assoc($result)) {
     $data[] = $row; 

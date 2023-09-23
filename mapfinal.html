@@ -9,10 +9,8 @@
 <script>
     google.load('visualization', '1', {'packages': ['geochart']});
     google.setOnLoadCallback(drawTemperatureMap);
-
-    function drawTemperatureMap() {
-        let arr = [];
-        var dropoutData = google.visualization.arrayToDataTable([
+    function drawTemperatureMap(data) {
+        var temperatureData = google.visualization.arrayToDataTable([
             ['State Code', 'State', 'Dropout Rates per state'],
             ['IN-UP','Uttar Pradesh', 25],
             ['IN-MH','Maharashtra', 32],
@@ -50,7 +48,9 @@
             ['IN-DN','Dadra and Nagar Haveli', 30],
             ['IN-DD','Daman and Diu', 29],
             ['IN-LD','Lakshadweep', 31]
+
         ]);
+
         var chartOptions = {
             region: 'IN',
             domain: 'IN',
@@ -62,9 +62,9 @@
             height: 480
         };
 
-        var dropoutChart = new google.visualization.GeoChart(
+        var temperatureChart = new google.visualization.GeoChart(
             document.getElementById('temperature-map'));
-        dropoutChart.draw(dropoutData, chartOptions);
+        temperatureChart.draw(temperatureData, chartOptions);
     };
 </script>
 <body>
