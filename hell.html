@@ -18,15 +18,11 @@
     <script>
         var rc = document.getElementById("result");
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", "table.php", true);
+        xmlhttp.open("GET", "abcd.php", true);
         xmlhttp.send();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var js = JSON.parse(this.responseText);
-                console.log(js);
-                var doRate = 100*js[0].DS/js[0].TS;
-                console.log(doRate);
-                rc.innerHTML = doRate;
+                console.log(this.responseText);
             }
         };
     </script>

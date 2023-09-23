@@ -1,11 +1,11 @@
 <?php
-
 $host = "localhost";
 $username = "root";
 $password = "";
 $database = "student_dropout";
 $conn = mysqli_connect($host, $username, $password, $database);
-/*$sql = "CREATE TABLE `school` (`school_ID` INT NOT NULL , `pw` VARCHAR(15) NOT NULL , `Sc_name` VARCHAR(60) NOT NULL , `City` VARCHAR(30) NULL DEFAULT NULL , `District` VARCHAR(20) NULL DEFAULT NULL , `State` VARCHAR(20) NULL DEFAULT NULL , `TS` INT NOT NULL , `DS` INT NOT NULL, PRIMARY KEY (`school_ID`)) ENGINE = InnoDB;";
+
+$sql = "CREATE TABLE `school` (`school_ID` INT NOT NULL , `pw` VARCHAR(15) NOT NULL , `Sc_name` VARCHAR(60) NOT NULL , `City` VARCHAR(30) NULL DEFAULT NULL , `District` VARCHAR(20) NULL DEFAULT NULL , `State` VARCHAR(20) NULL DEFAULT NULL , `TS` INT NOT NULL , `DS` INT NOT NULL, PRIMARY KEY (`school_ID`)) ENGINE = InnoDB;";
 $result = mysqli_query($conn, $sql);
 if ($result) {
     echo "Table 1made succesfully";
@@ -20,7 +20,7 @@ if ($result) {
     echo "Table 2 could not be created";
 }
 $sql = "INSERT INTO `school` (`School_ID`, `pw`, `Sc_name`, `City`, `District`, `State`, `TS`, `DS`) VALUES ('111', '111111', 'Mohan Chandel Vidhyalaya', 'Jabalpur', 'Jabalpur', 'Madhya Pradesh', '100', '5');";
-$result = mysqli_query($conn, $result);*/
+$result = mysqli_query($conn, $sql);
 
 $sql = "SELECT * FROM school";
 $result = mysqli_query($conn, "SELECT * FROM school");
