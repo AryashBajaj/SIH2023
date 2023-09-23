@@ -13,18 +13,19 @@
     <title>Document</title>
 </head>
 <body>
-    
     <button type="button" value="button" onclick="displayData()">Query</button>
     <div class="result" id="result"></div>
     <script>
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "table.php", true);
-            xmlhttp.send();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                }
-            };
+        var rc = document.getElementById("result");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "table.php", true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var js = JSON.parse(this.responseText);
+                
+            }
+        };
     </script>
 </body>
 </html>
