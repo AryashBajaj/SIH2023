@@ -1,4 +1,4 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,16 +8,32 @@
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 <script>
     google.load('visualization', '1', {'packages': ['geochart']});
-    google.setOnLoadCallback(drawTemperatureMap);
-
-    function drawTemperatureMap() {
-        var temperatureData = google.visualization.arrayToDataTable([
+    google.setOnLoadCallback(FetchdrawDropoutMap);
+    function FetchdrawDropoutMap() {
+        console.log("Hello");
+        var js;
+        var xml = new XMLHttpRequest();
+        xml.open("GET", "abcd.php", true);
+        xml.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                var js = JSON.parse(this.responseText);
+                console.log(js);
+                var data = 100*(js[0].DS/js[0].TS);
+                drawDropoutMap(data);
+            }
+        }
+        xml.send();
+    }
+    function drawDropoutMap(data) {
+        console.log("Draw function");
+        var dropoutData = google.visualization.arrayToDataTable([
             ['State Code', 'State', 'Dropout Rates per state'],
             ['IN-UP','Uttar Pradesh', 25],
             ['IN-MH','Maharashtra', 32],
             ['IN-BR','Bihar', 31],
             ['IN-WB','West Bengal', 32],
-            ['IN-MP','Madhya Pradesh', 30],
+            ['IN-MP','Madhya Pradesh', data],
             ['IN-TN','Tamil Nadu', 33],
             ['IN-RJ','Rajasthan', 33],
             ['IN-KA','Karnataka', 29],
@@ -56,23 +72,23 @@
             region: 'IN',
             domain: 'IN',
             displayMode: 'regions',
-            colorAxis: {colors: ['#e5ef88', '#d4b114', '#e85a03']},
+            colorAxis: {colors: ['#8bc34a', '#ffff00', '#ff5722']},
             resolution: 'provinces',
             defaultColor: '#f5f5f5',
             width: 640,
             height: 480
         };
 
-        var temperatureChart = new google.visualization.GeoChart(
-            document.getElementById('temperature-map'));
-        temperatureChart.draw(temperatureData, chartOptions);
+        var dropoutChart = new google.visualization.GeoChart(
+            document.getElementById('dropout-map'));
+        dropoutChart.draw(dropoutData, chartOptions);
     };
 </script>
 <body>
 
 <div align="center">
     <h1>Student Dropout Rates per State</h1>
-    <div id="temperature-map"></div>
+    <div id="dropout-map"></div>
 </div>
 </body>
 </html>

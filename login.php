@@ -70,7 +70,6 @@
 
     button:hover {
       background-color: #002a66;
-      /* Darker blue on hover */
     }
   </style>
 </head>
@@ -78,7 +77,7 @@
 <body>
   <div class="container">
     <h2>School Login</h2>
-    <form id="login-form" action="/process-action.html" name="School Login" onsubmit="return validateForm()" method="post">
+    <form id="login-form" action="verify.php" name="School Login" method="post">
       <div class="form-group">
         <label for="schoolId">School ID</label>
         <input type="text" id="schoolId" name="schoolId" required>
@@ -97,7 +96,6 @@
 
   <script type="text/javascript">
 
-    
   </script>
 </body>
 

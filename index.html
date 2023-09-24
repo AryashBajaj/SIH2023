@@ -36,9 +36,16 @@
           font-family: 'Tajawal', sans-serif;
           font-size: 1.38rem;
           line-height: 2.2rem;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
         }
 
-        #learn-more{
+        #data-analyze{
+          background-color: rgb(34,51,107);
+          font-size: large;
+          box-shadow: black 1px 1px 1px;
+        }
+        .links{
           border-radius: 50px;
           background-color: rgba(0, 0, 0, 0.415);
           padding: 7px;
@@ -46,6 +53,10 @@
           text-decoration: none;
           margin-bottom: 5px;
           font-size: 1rem;
+        }
+        #login{
+          background-color: rgb(117, 65, 55);
+          box-shadow: rgb(62, 62, 62) 1px 1px 1px;
         }
         @keyframes fadeInBottom {
         from {
@@ -78,7 +89,8 @@
             <div class="col-6 ">
 
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fa-solid fa-bars" style="color: #303030;"></i>
               </button>
 
             </div>
@@ -102,42 +114,29 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
   
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                   </li>
   
                   <li class="nav-item">
                     <a class="nav-link" href="sd.html">School Portal</a>
                   </li>
-  
-                  <!-- <li class="nav-item">
-                      <a class="nav-link" href="#">Heat Maps</a>
-                  </li> -->
-  
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Data Analysis
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="mapfinal.html" target="_blank">Heatmaps</a></li>
-                      <li><a class="dropdown-item" href="graph1.html" target="_blank">Graphs</a></li>
-                      <li><a class="dropdown-item" href="graph2.html" target="_blank">Pie Charts</a></li>
+                      <li><a class="dropdown-item" href="map.php">Heatmaps</a></li>
+                      <li><a class="dropdown-item" href="graph1.html">Graphs</a></li>
+                      <li><a class="dropdown-item" href="graph2.html">Pie Charts</a></li>
                     </ul>
                   </li>
-  
                 </ul>
               </div>
-  
             </div>
-
           </div>
-          
         </div>
-
     </nav>
-
-
     <div id="carouselExampleCaptions" class="carousel slide">
-
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -161,12 +160,12 @@
               It perpetuates socio-economic disparities, curtails economic growth, and underscores the urgent need for a comprehensive assessment 
               of the education system's effectiveness and inclusivity.</p>
 
-              <a href="https://data.gov.in/catalog/dropout-rate" id="learn-more" style="display: none;">Learn More</a>
+              <a href="https://data.gov.in/catalog/dropout-rate" id="learn-more" class="links" style="display: none;">Learn More</a>
           </div>
         </div>
 
         <div class="carousel-item">
-          <img src="is5.jpeg" class="d-block w-100" alt="...">
+          <img src="is5.jpeg.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <p class="slide-content fade-in" id="slide2-content">In India, student dropout rates can be attributed to a complex interplay of factors. 
               Economic hardships, limited access to quality education, financial constraints, familial obligations, 
@@ -179,24 +178,30 @@
         <div class="carousel-item">
           <img src="is2.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p class="slide-content fade-in" id="slide3-content">Some representative placeholder content for the second slide.</p>
+            <p class="slide-content fade-in" id="slide3-content">In our study of student dropout rates in India, a robust dropout 
+              analysis method is vital. It untangles complex factors and enables targeted interventions, proving essential in addressing this issue. <br> <br>
+
+              Click here for further details: 
+            </p>
+
+              <a href="#" class="links" id="data-analyze">Data Analysis</a>
           </div>
         </div>
 
         <div class="carousel-item">
-          <img src="is1.jpg" class="d-block w-100" alt="...">
+          <img src="school.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p class="slide-content">Some representative placeholder content for the third slide.</p>
+            <p class="slide-content">School Portal: </p>
+            <br>
+            <a href="#" class="links" id="login">Login</a>
           </div>
         </div>
 
         <div class="carousel-item">
           <img src="is7.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p class="slide-content">Some representative placeholder content for the second slide.</p>
+            <!-- <h5>Second slide label</h5>
+            <p class="slide-content">Some representative placeholder content for the second slide.</p> -->
           </div>
         </div>
 
