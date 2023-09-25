@@ -15,7 +15,7 @@ foreach($data as $d) {
         echo "Login succesful!!!";
         $_SESSION['sid'] = $sid;
         $_SESSION['sname'] = $sn;
-        header("location: index.php");
+        header("location: sd.html");
     } else {
         die("Login Unsuccesful!!!");
     }

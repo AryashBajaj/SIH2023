@@ -88,8 +88,8 @@
     var divisionData = [15, 10, 50, 25];
     var divisionTitle = "Division Distribution (Pie Chart)";
 
-    var genderLabels = ["Male", "Female"];
-    var genderData = [60, 40];
+    var genderLabels = ["Male", "Female", "Others"];
+    var genderData = [59, 39, 2];
     var genderTitle = "Gender Distribution (Pie Chart)";
 
     function createBarChart(labels, data, title) {
@@ -149,8 +149,11 @@
                 console.log(js);
                 var a = Number(js[0].rate);
                 var b = Number(js[1].rate);
-                genderData[0] = 100*b/(a + b);
-                genderData[1] = 100*a/(a + b);
+                var c = Number(js[2].rate);
+                console.log(c);
+                genderData[0] = 100*b/(a + b + c);
+                genderData[1] = 100*a/(a + b + c);
+                genderData[2] = 100*c/(a + b + c);
                 showGenderChart();
             }
         }
