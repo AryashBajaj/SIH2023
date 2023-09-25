@@ -80,6 +80,18 @@
         "#1e7145"
     ];
 
+    var ageLabels = ["5-8", "8-11", "11-14", "14-18"];
+    var ageData = [30, 45, 20, 5];
+    var ageTitle = "Age Group Distribution (Bar Chart)";
+
+    var divisionLabels = ["SC", "ST", "General", "OBC"];
+    var divisionData = [15, 10, 50, 25];
+    var divisionTitle = "Division Distribution (Pie Chart)";
+
+    var genderLabels = ["Male", "Female"];
+    var genderData = [60, 40];
+    var genderTitle = "Gender Distribution (Pie Chart)";
+
     function createBarChart(labels, data, title) {
         var ctx = document.getElementById("myChart").getContext("2d");
         return new Chart(ctx, {
@@ -127,17 +139,23 @@
         });
     }
 
-    var ageLabels = ["5-8", "8-11", "11-14", "14-18"];
-    var ageData = [30, 45, 20, 5];
-    var ageTitle = "Age Group Distribution (Bar Chart)";
-
-    var divisionLabels = ["SC", "ST", "General", "OBC"];
-    var divisionData = [15, 10, 50, 25];
-    var divisionTitle = "Division Distribution (Pie Chart)";
-
-    var genderLabels = ["Male", "Female"];
-    var genderData = [60, 40];
-    var genderTitle = "Gender Distribution (Pie Chart)";
+    function fetchGenderChart() {
+        console.log("Function 1");
+        var xml = new XMLHttpRequest();
+        xml.open("GET", "graphData1.php", true);
+        xml.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var js = JSON.parse(this.responseText);
+                console.log(js);
+                var a = Number(js[0].rate);
+                var b = Number(js[1].rate);
+                genderData[0] = 100*b/(a + b);
+                genderData[1] = 100*a/(a + b);
+                showGenderChart();
+            }
+        }
+        xml.send();
+    }
 
     var currentChart = createPieChart(divisionLabels, divisionData, divisionTitle);
 
@@ -158,7 +176,7 @@
 
     document.getElementById("ageChartButton").onclick = showAgeChart;
     document.getElementById("divisionChartButton").onclick = showDivisionChart;
-    document.getElementById("genderChartButton").onclick = showGenderChart;
+    document.getElementById("genderChartButton").onclick = fetchGenderChart;
 </script>
 </body>
 </html>
